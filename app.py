@@ -1,13 +1,10 @@
 import os
 import sys
 
-# Überprüfe, ob Joblib installiert ist, wenn nicht, installiere es
-try:
-    import joblib
-except ModuleNotFoundError:
-    os.system(f"{sys.executable} -m pip install joblib")
-    import joblib  # Nochmals versuchen nach der Installation
+# Erzwungene Installation von Joblib
+os.system(f"{sys.executable} -m pip install --no-cache-dir joblib")
 
+import joblib  # Jetzt sollte es funktionieren
 import streamlit as st
 import pandas as pd
 import numpy as np
